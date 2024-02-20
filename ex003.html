@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpo</title>
+</head>
+
+<body>
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        const escolhaDoJogador = userInput => {
+            userInput = userInput.toLowerCase();
+            if (userInput === "pedra" || userInput === "papel" || userInput === "tesoura") {
+                return userInput;
+            } else {
+                mostra("Erro!");
+                return null;
+            }
+        };
+
+        const escolhaDoComputador = () => {
+            const randomNumber = Math.floor(Math.random() * 3);
+            switch (randomNumber) {
+                case 0: return "pedra";
+                case 1: return "papel";
+                case 2: return "tesoura";
+            }
+        }
+
+        const vencedor = (jogador, computador) => {
+            mostra("Você escolheu: " + jogador);
+            mostra("O computador escolheu: " + computador);
+
+            if (jogador === computador) {
+                mostra("Empate!");
+            } else if ((jogador === "pedra" && computador === "tesoura") || (jogador === "papel" && computador === "pedra") ||
+                (jogador === "tesoura" && computador === "papel")) {
+                mostra("Muito bom, você ganhou!");
+            } else {
+                mostra("Que pena, você perdeu");
+            }
+        };
+
+
+        const jogador = escolhaDoJogador(prompt("Escolha Pedra, Papel ou Tesoura:"));
+        const computador = escolhaDoComputador();
+        vencedor(jogador, computador);
+
+    </script>
+
+</body>
+
+</html>
