@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz</title>
+</head>
+
+<body>
+
+    <script>
+
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        function matrizQuadrada() {
+            let num = parseInt(prompt("Digite a ordem da matriz quadrada: "));
+            let matriz = [];
+            for (let i = 0; i < num; i++) {
+                let linha = [];
+                for (let j = 0; j < num; j++) {
+                    let elemento = parseFloat(prompt(`Digite o elemento da posição (${i + 1},${j + 1}): `));
+                    linha.push(elemento);
+                }
+                matriz.push(linha);
+            }
+            return matriz;
+        }
+
+        function calcularDiagonalPrincipal(matriz) {
+            let soma = 0;
+            for (let i = 0; i < matriz.length; i++) {
+                soma += matriz[i][i];
+            }
+            return soma;
+        }
+
+        function principal() {
+            let matriz = matrizQuadrada();
+            let diagonalPrincipal = calcularDiagonalPrincipal(matriz);
+            mostra("A soma dos elementos da diagonal principal é: " + diagonalPrincipal);
+        }
+
+        principal();
+    </script>
+</body>
+
+</html>
