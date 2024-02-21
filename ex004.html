@@ -17,10 +17,10 @@
             pulaLinha();
         }
 
-        var num1 = parseFloat(prompt("Digite um número: "));
-        var num2 = parseFloat(prompt("Digite outro número: "));
+        let num1 = parseFloat(prompt("Digite um número: "));
+        let num2 = parseFloat(prompt("Digite outro número: "));
 
-        var operador = prompt("Digite o operador (+, -, *, /): ");
+        let operador = prompt("Digite o operador (+, -, *, /): ");
 
         function calcularOperacao(operador, num1, num2) {
             switch (operador) {
@@ -37,8 +37,8 @@
             }
         }
 
-        var resultado = calcularOperacao(operador, num1, num2);
-        mostra("O resultado entre " + num1 + operador + num2 + " é " + resultado);
+        let resultado = calcularOperacao(operador, num1, num2);
+        mostra("O resultado entre " + num1 + " " + operador + " " + num2 + " é " + resultado);
     </script>
 </body>
 
