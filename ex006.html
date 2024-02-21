@@ -24,15 +24,12 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        for (let i = 0; i < 10; i++) {
-            let numeroAleatorio = randomNumber(0, 100);
-            mostra(numeroAleatorio);
-        }
-
         let numeros = Array.from({ length: 10 }, () => randomNumber(0, 100));
 
         let menor = Math.min(...numeros);
         let maior = Math.max(...numeros);
+
+        document.write("Números gerados: " + numeros.join(", ") + "<br>");
 
         mostra("O menor número é " + menor + " e o maior número é " + maior);
     </script>
