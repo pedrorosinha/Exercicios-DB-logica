@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetores</title>
+</head>
+
+<body>
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        function bubbleSort(array) {
+            const length = array.length;
+            for (let i = 0; i < length - 1; i++) {
+                for (let j = 0; j < length - 1 - i; j++) {
+                    if (array[j] > array[j + 1]) {
+                        const temp = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = temp;
+                    }
+                }
+            }
+            return array;
+        }
+
+        let vetor = [];
+        for (let i = 0; i < 100; i++) {
+            vetor.push(Math.floor(Math.random() * 1000));
+        }
+
+        mostra("Vetor não ordenado:");
+        mostra(vetor.slice(0, vetor.length / 2).join(', '));
+        mostra(vetor.slice(vetor.length / 2).join(', '));
+
+        vetor = bubbleSort(vetor);
+
+        mostra("Vetor ordenado:");
+        mostra(vetor.slice(0, vetor.length / 2).join(', '));
+        mostra(vetor.slice(vetor.length / 2).join(', '));
+
+    </script>
+</body>
+
+</html>
