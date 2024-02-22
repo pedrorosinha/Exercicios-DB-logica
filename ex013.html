@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média Provas</title>
+</head>
+
+<body>
+
+    <script>
+
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        function calculadoraNotas(nota1, nota2, nota3) {
+            let media = (nota1 + nota2 + nota3) / 3;
+            return media;
+        }
+        
+        let nota1 = parseFloat(prompt("Digite a primeira nota: "));
+        let nota2 = parseFloat(prompt("Digite a segunda nota: "));
+        let nota3 = parseFloat(prompt("Digite a terceira nota: "));
+
+
+       let mediaAluno = calculadoraNotas(nota1, nota2, nota3);
+
+       mostra("A media do aluno das três notas é: " + mediaAluno)
+
+        if (mediaAluno > 6 && mediaAluno <= 10) {
+            mostra("Aprovado! Parabéns!");
+        } else if (mediaAluno >= 4 && mediaAluno <= 6) {
+            mostra("Verificação suplementar! Precisa melhorar")
+        } else if (mediaAluno >= 0 && mediaAluno < 4) {
+            mostra("Reprovado!")
+        } 
+
+    </script>
+</body>
+
+</html>
