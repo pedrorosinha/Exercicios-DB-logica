@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Tempo</title>
+</head>
+
+<body>
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        function tempoMetodos(segundos) {
+            let minutos = Math.floor(segundos / 60);
+            segundos %= 60;
+
+            let horas = Math.floor(minutos / 60);
+            minutos %= 60;
+
+            let dias = Math.floor(horas / 24);
+            horas %= 24;
+
+            let meses = Math.floor(dias / 30);
+            dias %= 30;
+
+            let anos = Math.floor(meses / 12);
+            meses %= 12;
+
+            return [anos, meses, dias, horas, minutos, segundos];
+        }
+
+        let segundos = parseInt(prompt("Digite a quantidade de segundos: "));
+        let [anos, meses, dias, horas, minutos, segundosRestantes] = tempoMetodos(segundos);
+
+        mostra(`${anos} ano(s), ${meses} mes(es) ${dias} dia(s), ${horas} hora(s), ${minutos} minuto(s), ${segundosRestantes} segundo(s)`);
+
+    </script>
+</body>
+
+</html>
