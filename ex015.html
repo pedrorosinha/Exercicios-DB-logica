@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora II</title>
+</head>
+
+<body>
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        class Calculadora {
+            static somar(x, y) {
+                return x + y;
+            }
+
+            static subtrair(x, y) {
+                return x - y;
+            }
+
+            static multiplicar(x, y) {
+                return x * y;
+            }
+
+            static divisao(x, y) {
+                if (y === 0) {
+                    throw new console.error("Erro! Não tem divisão por zero!");
+                }
+                return x / y;
+            }
+
+            static potenciacao(base, expo) {
+                return Math.pow(base, expo);
+            }
+        }
+
+        mostra("A soma entre 2 e 6 é " + Calculadora.somar(2, 6));
+        mostra("A subtração entre 5 e 3 é " + Calculadora.subtrair(5, 3));
+        mostra("A multiplicação entre 4 e 9 é " + Calculadora.multiplicar(4, 9));
+        mostra("A divisão entre 45 e 9 é " + Calculadora.divisao(45, 9));
+        mostra("A potenciação entre 2 e 8 é " + Calculadora.potenciacao(2, 8));
+    </script>
+</body>
+
+</html>
