@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Árvore Genealógica</title>
+</head>
+
+<body>
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        class Pessoa {
+            constructor(nome, idade, pai = null, mae = null) {
+                this.nome = nome;
+                this.idade = idade;
+                this.pai = pai;
+                this.mae = mae;
+            }
+
+            setPai(pai) {
+                this.pai = pai;
+            }
+
+            setMae(mae) {
+                this.mae = mae;
+            }
+
+            getInfo() {
+                let info = `${this.nome}, ${this.idade} anos`;
+                if (this.pai) {
+                    info += `, Pai: ${this.pai.nome}`;
+                }
+                if (this.mae) {
+                    info += `, Mãe: ${this.mae.nome}`;
+                }
+                return info;
+            }
+        }
+
+        const avoPaterno = new Pessoa("Avô Paterno", 86);
+        const avoMaterno = new Pessoa("Avô Materno", 72);
+        const avoPaterna = new Pessoa("Avó Paterna", 84);
+        const avoMaterna = new Pessoa("Avó Materna", 68);
+
+        const pai = new Pessoa("Pai", 63, avoPaterno, avoMaterno);
+        const mae = new Pessoa("Mãe", 52, avoPaterna, avoMaterna);
+
+        const filho = new Pessoa("Filho", 18);
+
+        mostra(filho.getInfo());
+        mostra(mae.getInfo())
+        mostra(pai.getInfo())
+    </script>
+</body>
+
+</html>
