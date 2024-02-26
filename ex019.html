@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Telefônica</title>
+    <style>
+        #phone-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .phone-item {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Lista Telefônica</h2>
+
+    <input type="text" id="phone-input" placeholder="Digite um número">
+    <button onclick="addPhoneNumber()">Adicionar Número</button>
+
+    <ul id="phone-list"></ul>
+
+    <script>
+        function addPhoneNumber() {
+            var input = document.getElementById("phone-input");
+            var phoneNumber = input.value.trim();
+
+            if (phoneNumber !== "") {
+                var list = document.getElementById("phone-list");
+                var listItem = document.createElement("li");
+                listItem.className = "phone-item";
+                listItem.textContent = phoneNumber;
+
+                var removeButton = document.createElement("button");
+                removeButton.textContent = "Remover";
+                removeButton.onclick = function () {
+                    list.removeChild(listItem);
+                };
+
+                listItem.appendChild(removeButton);
+                list.appendChild(listItem);
+
+                input.value = "";
+            } else {
+                alert("Por favor, insira um número de telefone válido.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
