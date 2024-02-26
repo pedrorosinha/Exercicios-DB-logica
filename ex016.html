@@ -30,19 +30,19 @@
 
             emprestar() {
                 if (this.emprestado) {
-                    console.log("Este livro já foi emprestado.");
+                    mostra("Este livro já foi emprestado.");
                 } else {
                     this.emprestado = true;
-                    console.log("Livro emprestado com sucesso.");
+                    mostra("Livro emprestado com sucesso.");
                 }
             }
 
             devolver() {
                 if (this.emprestado) {
                     this.emprestado = false;
-                    console.log("Livro devolvido com sucesso.");
+                    mostra("Livro devolvido com sucesso.");
                 } else {
-                    console.log("Este livro já está na biblioteca.");
+                    mostra("Este livro já está na biblioteca.");
                 }
             }
         }

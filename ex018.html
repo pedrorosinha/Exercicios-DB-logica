@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automovel</title>
+</head>
+
+<body>
+
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        class Automovel {
+            constructor(marca, modelo, ano, numRodas, velMax) {
+                this.marca = marca;
+                this.modelo = modelo;
+                this.ano = ano;
+                this.numRodas = numRodas;
+                this.velMax = velMax;
+                this.ligado = false;
+            }
+
+            ligar() {
+                this.ligado = true;
+                mostra(`${this.marca} ${this.modelo} ligado.`);
+            }
+
+            desligar() {
+                this.ligado = false;
+                mostra(`${this.marca} ${this.modelo} desligado.`);
+            }
+        }
+
+        class Carro extends Automovel {
+            constructor(marca, modelo, ano, cor) {
+                super(marca, modelo, ano);
+                this.cor = cor;
+            }
+
+            acelerar() {
+                mostra(`${this.marca} ${this.modelo} acelerando...`);
+            }
+
+            frear() {
+                mostra(`${this.marca} ${this.modelo} freando...`);
+            }
+        }
+
+        class Moto extends Automovel {
+            constructor(marca, modelo, ano, cilindradas) {
+                super(marca, modelo, ano);
+                this.cilindradas = cilindradas;
+            }
+
+            empinar() {
+                mostra(`${this.marca} ${this.modelo} empinando...`);
+            }
+        }
+
+        class MotoPartidaPedal extends Moto {
+            constructor(marca, modelo, ano, cilindradas) {
+                super(marca, modelo, ano, cilindradas);
+                this.aceleradorLigado = false;
+            }
+
+            ligar() {
+                if (this.aceleradorLigado) {
+                    super.ligar();
+                } else {
+                    mostra("Para ligar a moto, o acelerador precisa estar ligado.");
+                }
+            }
+
+            ligarAcelerador() {
+                this.aceleradorLigado = true;
+                mostra("Acelerador ligado.");
+            }
+
+            desligarAcelerador() {
+                this.aceleradorLigado = false;
+                mostra("Acelerador desligado.");
+            }
+        }
+
+        class Guincho extends Automovel {
+            constructor(marca, modelo, ano, capacidade) {
+                super(marca, modelo, ano);
+                this.capacidade = capacidade;
+            }
+
+            rebocar(veiculo) {
+                mostra(`Guinchando ${veiculo.marca} ${veiculo.modelo}`);
+            }
+        }
+
+        class CarroAutomatico extends Carro {
+            constructor(marca, modelo, ano, cor) {
+                super(marca, modelo, ano, cor);
+                this.freioPressionado = false;
+            }
+
+            pressionarFreio() {
+                this.freioPressionado = true;
+                mostra("Freio pressionado.");
+            }
+
+            soltarFreio() {
+                this.freioPressionado = false;
+                mostra("Freio solto.");
+            }
+
+            ligar() {
+                if (this.freioPressionado) {
+                    super.ligar();
+                } else {
+                    mostra("Para ligar o carro automático, o freio precisa estar pressionado.");
+                }
+            }
+        }
+
+        const carro = new Carro("Ferrari", "Italia", 2022, "Vermelho");
+
+        const moto = new Moto("Honda", "CBR600RR", 2023, 600);
+
+        const guincho = new Guincho("Mercedes-Benz", "Actros", 2020, "50 toneladas");
+
+        const carroAutomatico = new CarroAutomatico("Tesla", "Model S", 2024, "Branco");
+
+        const motoComAcelerador = new MotoComAcelerador("Kawasaki", "Ninja H2R", 2023, 1200);
+
+
+        carro.ligar();
+        carro.acelerar();
+        carro.frear();
+        carro.desligar();
+
+        moto.ligar();
+        moto.empinar();
+        moto.desligar();
+
+        guincho.ligar();
+        guincho.rebocar(carro);
+
+        carroAutomatico.pressionarFreio();
+        carroAutomatico.ligar();
+        carroAutomatico.soltarFreio();
+        carroAutomatico.ligar();
+
+        motoComAcelerador.ligar(); 
+        motoComAcelerador.ligarAcelerador();
+        motoComAcelerador.ligar();
+    </script>
+</body>
+
+</html>
