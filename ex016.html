@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emprestimo de livros</title>
+</head>
+
+<body>
+
+    <script>
+
+        function pulaLinha() {
+            document.write("<br>");
+            document.write("<br>");
+        }
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        }
+
+        class Livro {
+            constructor(titulo, autor) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.disponivel = true;
+            }
+
+            emprestar() {
+                if (this.emprestado) {
+                    console.log("Este livro já foi emprestado.");
+                } else {
+                    this.emprestado = true;
+                    console.log("Livro emprestado com sucesso.");
+                }
+            }
+
+            devolver() {
+                if (this.emprestado) {
+                    this.emprestado = false;
+                    console.log("Livro devolvido com sucesso.");
+                } else {
+                    console.log("Este livro já está na biblioteca.");
+                }
+            }
+        }
+
+        class Pessoa {
+            constructor(nome) {
+                this.nome = nome;
+                this.emprestimos = [];
+            }
+        }
+
+        class Emprestimo {
+            constructor(livro, pessoa, dataInicio, dataFim) {
+                this.livro = livro;
+                this.pessoa = pessoa;
+                this.dataInicio = dataInicio;
+                this.dataFim = dataFim;
+            }
+        }
+
+        const livro1 = new Livro("Revolução dos Bichos", "George Orwell")
+        const livro2 = new Livro("A Divina Comédia", "Dante Alighieri")
+
+        const pessoa1 = new Pessoa("Gustavo");
+        const pessoa2 = new Pessoa("Gabriela")
+
+        const emprestimo1 = new Emprestimo(livro1, pessoa1, new Date(2024, 2, 28), new Date(2024, 3, 10));
+        const emprestimo2 = new Emprestimo(livro2, pessoa2, new Date(2023, 10, 14), new Date(2023, 10, 30));
+
+        emprestimo1.emprestar();
+        emprestimo2.emprestar();
+
+        emprestimo1.devolver();
+        emprestimo2.devolver();
+    </script>
+</body>
+
+</html>
